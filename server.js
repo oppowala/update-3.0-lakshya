@@ -1,15 +1,3 @@
-/*
-http://patorjk.com/software/taag/#p=display&f=ANSI%20Regular&t=Server
-
-███████ ███████ ██████  ██    ██ ███████ ██████  
-██      ██      ██   ██ ██    ██ ██      ██   ██ 
-███████ █████   ██████  ██    ██ █████   ██████  
-     ██ ██      ██   ██  ██  ██  ██      ██   ██ 
-███████ ███████ ██   ██   ████   ███████ ██   ██                                           
-*/
-
-"use strict"; // https://www.w3schools.com/js/js_strict.asp
-
 require("dotenv").config();
 
 const express = require("express");
@@ -140,21 +128,7 @@ async function ngrokStart() {
  * Start Local Server with ngrok https tunnel (optional)
  */
 server.listen(PORT, null, function () {
-  logme(
-    `%c
-
-	███████╗██╗ ██████╗ ███╗   ██╗      ███████╗███████╗██████╗ ██╗   ██╗███████╗██████╗ 
-	██╔════╝██║██╔════╝ ████╗  ██║      ██╔════╝██╔════╝██╔══██╗██║   ██║██╔════╝██╔══██╗
-	███████╗██║██║  ███╗██╔██╗ ██║█████╗███████╗█████╗  ██████╔╝██║   ██║█████╗  ██████╔╝
-	╚════██║██║██║   ██║██║╚██╗██║╚════╝╚════██║██╔══╝  ██╔══██╗╚██╗ ██╔╝██╔══╝  ██╔══██╗
-	███████║██║╚██████╔╝██║ ╚████║      ███████║███████╗██║  ██║ ╚████╔╝ ███████╗██║  ██║
-	╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝      ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝╚═╝  ╚═╝ started...
-
-	`,
-    "font-family:monospace"
-  );
-
-  // https tunnel
+ 
   if (ngrokEnabled == "true") {
     ngrokStart();
   } else {
@@ -583,13 +557,7 @@ io.sockets.on("connect", (socket) => {
       }
     }
   });
-}); // end [sockets.on-connect]
-
-/**
- * log with UTC data time
- * @param {*} msg message any
- * @param {*} op optional params
- */
+}); 
 function logme(msg, op = "") {
   let dataTime = new Date().toISOString().replace(/T/, " ").replace(/Z/, "");
   console.log("[" + dataTime + "] " + msg, op);
